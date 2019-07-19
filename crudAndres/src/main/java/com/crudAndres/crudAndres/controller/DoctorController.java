@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class DoctorController {
 
-		@GetMapping("/")
+		@GetMapping("/hola")
 		public String doctorInformation() {
 			return "index";
 		}
