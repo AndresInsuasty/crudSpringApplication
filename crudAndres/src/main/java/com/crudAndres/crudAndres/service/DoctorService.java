@@ -5,5 +5,6 @@ import com.crudAndres.crudAndres.entity.DOCTORS;
 public interface DoctorService {
 	
 	public Iterable<DOCTORS> getAllDOCTORS();
+	
 
 }

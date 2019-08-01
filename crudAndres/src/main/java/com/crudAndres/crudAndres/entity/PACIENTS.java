@@ -6,6 +6,8 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -19,7 +21,10 @@ public class PACIENTS implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	
 	@Id
+	@GeneratedValue
+	@Column
 	private Long id;	
 	
 	@Column

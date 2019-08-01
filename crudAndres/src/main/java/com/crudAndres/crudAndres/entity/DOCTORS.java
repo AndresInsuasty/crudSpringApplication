@@ -1,26 +1,22 @@
 package com.crudAndres.crudAndres.entity;
 
-import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class DOCTORS implements Serializable{
+public class DOCTORS{
 	public DOCTORS() {
 		
 	}
 	
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
-
-	@GeneratedValue
+	
 	@Id
-	@Column(name="ID_DOCTOR")
+	@GeneratedValue
+	@Column(name="ID")
 	private Long id;
 	
 	@Column(name="CODE")
@@ -87,6 +83,7 @@ public class DOCTORS implements Serializable{
 	}
 
 	public DOCTORS(Long id, String code, String specialty, Long years, String consultingRoom, String domicile) {
+		super();
 		this.id = id;
 		this.code = code;
 		this.specialty = specialty;
