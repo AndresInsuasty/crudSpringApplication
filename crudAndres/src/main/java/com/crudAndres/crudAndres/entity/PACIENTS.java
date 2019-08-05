@@ -3,6 +3,7 @@ package com.crudAndres.crudAndres.entity;
 import java.io.Serializable;
 import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -45,13 +46,10 @@ public class PACIENTS implements Serializable{
 	@Column
 	private Long fee;
 	
-	@Column
-	private String newDate;
-	
-	@ManyToMany(fetch = FetchType.LAZY)
-	@JoinTable(name="doctor_paciente", 
+	@ManyToMany(cascade = {CascadeType.ALL})
+	@JoinTable(name="CITAS", 
 	joinColumns=@JoinColumn(name="pacient_id"),
-	inverseJoinColumns=@JoinColumn(name="doctor_id"))
+	inverseJoinColumns= {@JoinColumn(name="doctor_id")})
 	private Set<DOCTORS> doctorsList;
 
 	public Long getId() {
@@ -110,13 +108,7 @@ public class PACIENTS implements Serializable{
 		this.fee = fee;
 	}
 
-	public String getNewDate() {
-		return newDate;
-	}
 
-	public void setNewDate(String newDate) {
-		this.newDate = newDate;
-	}
 
 	public Set<DOCTORS> getDoctorsList() {
 		return doctorsList;
@@ -130,7 +122,7 @@ public class PACIENTS implements Serializable{
 	public String toString() {
 		return "PACIENTS [id=" + id + ", name=" + name + ", lastName=" + lastName + ", birthday=" + birthday
 				+ ", identification=" + identification + ", treatment=" + treatment + ", fee=" + fee + ", newDate="
-				+ newDate + ", doctorsList=" + doctorsList + "]";
+				+", doctorsList=" + doctorsList + "]";
 	}
 
 	@Override
@@ -144,7 +136,6 @@ public class PACIENTS implements Serializable{
 		result = prime * result + ((identification == null) ? 0 : identification.hashCode());
 		result = prime * result + ((lastName == null) ? 0 : lastName.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
-		result = prime * result + ((newDate == null) ? 0 : newDate.hashCode());
 		result = prime * result + ((treatment == null) ? 0 : treatment.hashCode());
 		return result;
 	}
@@ -193,11 +184,7 @@ public class PACIENTS implements Serializable{
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
-		if (newDate == null) {
-			if (other.newDate != null)
-				return false;
-		} else if (!newDate.equals(other.newDate))
-			return false;
+
 		if (treatment == null) {
 			if (other.treatment != null)
 				return false;

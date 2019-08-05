@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.crudAndres.crudAndres.entity.DOCTORS;
 import com.crudAndres.crudAndres.entity.PACIENTS;
 import com.crudAndres.crudAndres.repository.PacientRepository;
 
