@@ -16,6 +16,36 @@ public class CITAS implements Serializable{
 	@GeneratedValue
 	private Long id;
 	
+	@Column
+	private Long PACIENT_ID;
+	
+	@Column
+	private Long DOCTOR_ID;
+	
+	@Column
+	private String NewDate;
+	
+	@Column
+	private String Time;
+	
+	@Override
+	public String toString() {
+		return "CITAS [id=" + id + ", PACIENT_ID=" + PACIENT_ID + ", DOCTOR_ID=" + DOCTOR_ID + ", NewDate=" + NewDate
+				+ ", Time=" + Time + "]";
+	}
+
+	public CITAS(Long id, Long pACIENT_ID, Long dOCTOR_ID, String newDate, String time) {
+		super();
+		this.id = id;
+		PACIENT_ID = pACIENT_ID;
+		DOCTOR_ID = dOCTOR_ID;
+		NewDate = newDate;
+		Time = time;
+	}
+	public CITAS() {
+		
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -24,23 +54,20 @@ public class CITAS implements Serializable{
 		this.id = id;
 	}
 
-	@Column
-	private Long PACIENT_ID;
-	
-	@Column
-	private Long DOCTOR_ID;
-
-	@Override
-	public String toString() {
-		return "CITAS [PACIENT_ID=" + PACIENT_ID + ", DOCTOR_ID=" + DOCTOR_ID + "]";
+	public String getNewDate() {
+		return NewDate;
 	}
 
+	public void setNewDate(String newDate) {
+		NewDate = newDate;
+	}
 
-	public CITAS(Long id, Long pACIENT_ID, Long dOCTOR_ID) {
-		super();
-		this.id = id;
-		PACIENT_ID = pACIENT_ID;
-		DOCTOR_ID = dOCTOR_ID;
+	public String getTime() {
+		return Time;
+	}
+
+	public void setTime(String time) {
+		Time = time;
 	}
 
 	public Long getPACIENT_ID() {
