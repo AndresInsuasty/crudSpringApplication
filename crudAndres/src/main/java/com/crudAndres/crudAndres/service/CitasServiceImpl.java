@@ -3,31 +3,30 @@ package com.crudAndres.crudAndres.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crudAndres.crudAndres.entity.DOCTORS;
-import com.crudAndres.crudAndres.repository.DoctorRepository;
-
+import com.crudAndres.crudAndres.entity.CITAS;
+import com.crudAndres.crudAndres.repository.CitasRepository;
 @Service
-public class DoctorServiceImpl implements DoctorService {
-
+public class CitasServiceImpl implements CitasService{
+	
 	@Autowired
-	DoctorRepository repository;
+	CitasRepository repository;
 
 	@Override
-	public Iterable<DOCTORS> getAllDOCTORS() {
+	public Iterable<CITAS> getAllCITAS() {
 		// TODO Auto-generated method stub
 		return repository.findAll();
 	}
 
 	@Override
-	public void save(DOCTORS doctors) {
-		repository.save(doctors);
+	public void save(CITAS citas) {
+		// TODO Auto-generated method stub
+		repository.save(citas);
 	}
 
 	@Override
 	public void deleteById(Long id) {
 		// TODO Auto-generated method stub
 		repository.deleteById(id);
-
 	}
 
 }

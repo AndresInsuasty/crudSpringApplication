@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.crudAndres.crudAndres.entity.DOCTORS;
-import com.crudAndres.crudAndres.repository.DoctorRepository;
+import com.crudAndres.crudAndres.service.DoctorServiceImpl;
 
 
 @RestController
@@ -23,27 +23,27 @@ import com.crudAndres.crudAndres.repository.DoctorRepository;
 public class DoctorRestController {
 
 	@Autowired
-	private DoctorRepository repository;
-	
+	private DoctorServiceImpl service;
+		
 	@GetMapping
 	public List<DOCTORS>listar(){
-		return (List<DOCTORS>) repository.findAll();
+		return (List<DOCTORS>) service.getAllDOCTORS();
 		
 	}
 	
 	@PostMapping
 	public void insertar(@RequestBody DOCTORS doctors) {
-		repository.save(doctors);
+		service.save(doctors);
 	}
 	
 	@PutMapping
 	public void modificar(@RequestBody DOCTORS doctors) {
-		repository.save(doctors);
+		service.save(doctors);
 	}
 	
 	@DeleteMapping("/{id}")
 	public @ResponseBody void eliminar(@PathVariable Long id) {
-		repository.deleteById(id);
+		service.deleteById(id);
 	}
 	
 }

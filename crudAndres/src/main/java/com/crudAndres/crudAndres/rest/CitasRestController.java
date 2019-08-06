@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crudAndres.crudAndres.entity.CITAS;
-import com.crudAndres.crudAndres.repository.CitasRepository;
+import com.crudAndres.crudAndres.service.CitasServiceImpl;
 
 
 @RestController
@@ -25,28 +25,28 @@ import com.crudAndres.crudAndres.repository.CitasRepository;
 public class CitasRestController {
 	
 	@Autowired
-	private CitasRepository repository;
+	private CitasServiceImpl service;
 	
 	@GetMapping
 	public List<CITAS> listar(){
 		
 		/* Consultar cita y adjuntar doctor y paciente join*/ 
-	return (List<CITAS>)repository.findAll();
+	return (List<CITAS>)service.getAllCITAS();
 	}
 	
 	@PostMapping
 	public void insertar(@RequestBody CITAS citas) {
-		repository.save(citas);
+		service.save(citas);
 	}
 	
 	@PutMapping
 	public void modificar(@RequestBody CITAS citas) {
-		repository.save(citas);
+		service.save(citas);
 	}
 	
 	@DeleteMapping("/{id}")
 	public @ResponseBody void eliminar(@PathVariable Long id) {
-		repository.deleteById(id);
+		service.deleteById(id);
 	}
 	
 

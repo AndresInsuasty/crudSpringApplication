@@ -12,9 +12,10 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.crudAndres.crudAndres.entity.PACIENTS;
-import com.crudAndres.crudAndres.repository.PacientRepository;
+import com.crudAndres.crudAndres.service.PacientServiceImpl;
 
 @RestController
 @CrossOrigin(origins = "*", methods = { RequestMethod.GET, RequestMethod.POST, RequestMethod.PUT,
@@ -23,26 +24,27 @@ import com.crudAndres.crudAndres.repository.PacientRepository;
 public class PacientRestController {
 
 	@Autowired
-	private PacientRepository repository;
+	private PacientServiceImpl service;
+	
 
 	@GetMapping
 	public List<PACIENTS> listar() {
-		return (List<PACIENTS>) repository.findAll();
+		return (List<PACIENTS>) service.getAllPACIENTS();
 	}
 
 	@PostMapping
 	public void insertar(@RequestBody PACIENTS pacients) {
-		repository.save(pacients);
+		service.save(pacients);
 	}
 
 	@PutMapping
 	public void modificar(@RequestBody PACIENTS pacients) {
-		repository.save(pacients);
+		service.save(pacients);
 	}
 	
 	@DeleteMapping("/{id}")
-	public void eliminar(@PathVariable("id") Long id) {
-		repository.deleteById(id);
+	public @ResponseBody void eliminar(@PathVariable Long id) {
+		service.deleteById(id);
 	}
 
 }
