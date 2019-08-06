@@ -1,18 +1,16 @@
 package com.crudAndres.crudAndres.entity;
 
 import java.io.Serializable;
-import java.util.Set;
-
-import javax.persistence.CascadeType;
+//import java.util.Set;
+//
+//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
+//import javax.persistence.JoinColumn;
+//import javax.persistence.JoinTable;
+//import javax.persistence.ManyToMany;
 
 @Entity
 public class PACIENTS implements Serializable{
@@ -46,11 +44,11 @@ public class PACIENTS implements Serializable{
 	@Column
 	private Long fee;
 	
-	@ManyToMany(cascade = {CascadeType.ALL})
-	@JoinTable(name="CITAS", 
-	joinColumns=@JoinColumn(name="pacient_id"),
-	inverseJoinColumns= {@JoinColumn(name="doctor_id")})
-	private Set<DOCTORS> doctorsList;
+//	@ManyToMany(cascade = {CascadeType.ALL})
+//	@JoinTable(name="CITAS", 
+//	joinColumns=@JoinColumn(name="pacient_id"),
+//	inverseJoinColumns= {@JoinColumn(name="doctor_id")})
+//	private Set<DOCTORS> doctorsList;
 
 	public Long getId() {
 		return id;
@@ -109,20 +107,20 @@ public class PACIENTS implements Serializable{
 	}
 
 
+//
+//	public Set<DOCTORS> getDoctorsList() {
+//		return doctorsList;
+//	}
 
-	public Set<DOCTORS> getDoctorsList() {
-		return doctorsList;
-	}
-
-	public void setDoctorsList(Set<DOCTORS> doctorsList) {
-		this.doctorsList = doctorsList;
-	}
+//	public void setDoctorsList(Set<DOCTORS> doctorsList) {
+//		this.doctorsList = doctorsList;
+//	}
 
 	@Override
 	public String toString() {
 		return "PACIENTS [id=" + id + ", name=" + name + ", lastName=" + lastName + ", birthday=" + birthday
 				+ ", identification=" + identification + ", treatment=" + treatment + ", fee=" + fee + ", newDate="
-				+", doctorsList=" + doctorsList + "]";
+				+", doctorsList=" + "]";
 	}
 
 	@Override
@@ -130,7 +128,7 @@ public class PACIENTS implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
-		result = prime * result + ((doctorsList == null) ? 0 : doctorsList.hashCode());
+//		result = prime * result + ((doctorsList == null) ? 0 : doctorsList.hashCode());
 		result = prime * result + ((fee == null) ? 0 : fee.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((identification == null) ? 0 : identification.hashCode());
@@ -154,11 +152,11 @@ public class PACIENTS implements Serializable{
 				return false;
 		} else if (!birthday.equals(other.birthday))
 			return false;
-		if (doctorsList == null) {
-			if (other.doctorsList != null)
-				return false;
-		} else if (!doctorsList.equals(other.doctorsList))
-			return false;
+//		if (doctorsList == null) {
+//			if (other.doctorsList != null)
+//				return false;
+//		} else if (!doctorsList.equals(other.doctorsList))
+//			return false;
 		if (fee == null) {
 			if (other.fee != null)
 				return false;

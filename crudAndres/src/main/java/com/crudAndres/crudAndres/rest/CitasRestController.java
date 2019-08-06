@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crudAndres.crudAndres.entity.CITAS;
-import com.crudAndres.crudAndres.entity.DOCTORS;
 import com.crudAndres.crudAndres.repository.CitasRepository;
 
 
@@ -30,6 +29,8 @@ public class CitasRestController {
 	
 	@GetMapping
 	public List<CITAS> listar(){
+		
+		/* Consultar cita y adjuntar doctor y paciente join*/ 
 	return (List<CITAS>)repository.findAll();
 	}
 	
