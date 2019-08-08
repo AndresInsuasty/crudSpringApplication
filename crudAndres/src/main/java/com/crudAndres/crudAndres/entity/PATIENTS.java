@@ -1,54 +1,42 @@
 package com.crudAndres.crudAndres.entity;
 
 import java.io.Serializable;
-//import java.util.Set;
-//
-//import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-//import javax.persistence.JoinColumn;
-//import javax.persistence.JoinTable;
-//import javax.persistence.ManyToMany;
+
 
 @Entity
-public class PACIENTS implements Serializable{
+public class PATIENTS implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	
+
 	@Id
 	@GeneratedValue
 	@Column
-	private Long id;	
-	
+	private Long id;
+
 	@Column
 	private String name;
-	
+
 	@Column
 	private String lastName;
-	
+
 	@Column
 	private String birthday;
-	
+
 	@Column
 	private String identification;
-	
+
 	@Column
 	private Long treatment;
-	
+
 	@Column
 	private Long fee;
-	
-//	@ManyToMany(cascade = {CascadeType.ALL})
-//	@JoinTable(name="CITAS", 
-//	joinColumns=@JoinColumn(name="pacient_id"),
-//	inverseJoinColumns= {@JoinColumn(name="doctor_id")})
-//	private Set<DOCTORS> doctorsList;
 
 	public Long getId() {
 		return id;
@@ -105,22 +93,11 @@ public class PACIENTS implements Serializable{
 	public void setFee(Long fee) {
 		this.fee = fee;
 	}
-
-
-//
-//	public Set<DOCTORS> getDoctorsList() {
-//		return doctorsList;
-//	}
-
-//	public void setDoctorsList(Set<DOCTORS> doctorsList) {
-//		this.doctorsList = doctorsList;
-//	}
-
 	@Override
 	public String toString() {
 		return "PACIENTS [id=" + id + ", name=" + name + ", lastName=" + lastName + ", birthday=" + birthday
 				+ ", identification=" + identification + ", treatment=" + treatment + ", fee=" + fee + ", newDate="
-				+", doctorsList=" + "]";
+				+ ", doctorsList=" + "]";
 	}
 
 	@Override
@@ -128,7 +105,6 @@ public class PACIENTS implements Serializable{
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((birthday == null) ? 0 : birthday.hashCode());
-//		result = prime * result + ((doctorsList == null) ? 0 : doctorsList.hashCode());
 		result = prime * result + ((fee == null) ? 0 : fee.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((identification == null) ? 0 : identification.hashCode());
@@ -146,54 +122,51 @@ public class PACIENTS implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PACIENTS other = (PACIENTS) obj;
+		PATIENTS other = (PATIENTS) obj;
 		if (birthday == null) {
 			if (other.birthday != null)
 				return false;
-		} else if (!birthday.equals(other.birthday))
+		} 
+		else if (!birthday.equals(other.birthday))
 			return false;
-//		if (doctorsList == null) {
-//			if (other.doctorsList != null)
-//				return false;
-//		} else if (!doctorsList.equals(other.doctorsList))
-//			return false;
 		if (fee == null) {
 			if (other.fee != null)
 				return false;
-		} else if (!fee.equals(other.fee))
+		} 
+		else if (!fee.equals(other.fee))
 			return false;
 		if (id == null) {
 			if (other.id != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} 
+		else if (!id.equals(other.id))
 			return false;
 		if (identification == null) {
 			if (other.identification != null)
 				return false;
-		} else if (!identification.equals(other.identification))
+		} 
+		else if (!identification.equals(other.identification))
 			return false;
 		if (lastName == null) {
 			if (other.lastName != null)
 				return false;
-		} else if (!lastName.equals(other.lastName))
+		} 
+		else if (!lastName.equals(other.lastName))
 			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
-		} else if (!name.equals(other.name))
+		} 
+		else if (!name.equals(other.name))
 			return false;
 
 		if (treatment == null) {
 			if (other.treatment != null)
 				return false;
-		} else if (!treatment.equals(other.treatment))
+		} 
+		else if (!treatment.equals(other.treatment))
 			return false;
 		return true;
 	}
-	
-	
-	
-	
-	
 
 }

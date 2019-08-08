@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.crudAndres.crudAndres.entity.PACIENTS;
+import com.crudAndres.crudAndres.entity.PATIENTS;
 import com.crudAndres.crudAndres.service.PacientServiceImpl;
 
 @RestController
@@ -28,18 +28,18 @@ public class PacientRestController {
 	
 
 	@GetMapping
-	public List<PACIENTS> listar() {
-		return (List<PACIENTS>) service.getAllPACIENTS();
+	public List<PATIENTS> listar() {
+		return (List<PATIENTS>) service.getAllPACIENTS();
 	}
 
 	@PostMapping
-	public void insertar(@RequestBody PACIENTS pacients) {
-		service.save(pacients);
+	public void insertar(@RequestBody PATIENTS patients) {
+		service.save(patients);
 	}
 
 	@PutMapping
-	public void modificar(@RequestBody PACIENTS pacients) {
-		service.save(pacients);
+	public void modificar(@RequestBody PATIENTS patients) {
+		service.save(patients);
 	}
 	
 	@DeleteMapping("/{id}")

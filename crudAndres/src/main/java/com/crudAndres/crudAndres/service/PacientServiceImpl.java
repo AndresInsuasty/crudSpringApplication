@@ -3,7 +3,7 @@ package com.crudAndres.crudAndres.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crudAndres.crudAndres.entity.PACIENTS;
+import com.crudAndres.crudAndres.entity.PATIENTS;
 import com.crudAndres.crudAndres.repository.PacientRepository;
 @Service
 public class PacientServiceImpl implements PacientService {
@@ -12,20 +12,20 @@ public class PacientServiceImpl implements PacientService {
 	PacientRepository repository;
 
 	@Override
-	public Iterable<PACIENTS> getAllPACIENTS() {
-		// TODO Auto-generated method stub
+	public Iterable<PATIENTS> getAllPACIENTS() {
+		// Function to obtain patients from database
 		return repository.findAll();
 	}
 
 	@Override
-	public void save(PACIENTS pacients) {
-		// TODO Auto-generated method stub
-		repository.save(pacients);
+	public void save(PATIENTS patients) {
+		// Function to save Patients Http Methods like PUT and POST
+		repository.save(patients);
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
+		// Function to delete data from database
 		repository.deleteById(id);
 	}
 

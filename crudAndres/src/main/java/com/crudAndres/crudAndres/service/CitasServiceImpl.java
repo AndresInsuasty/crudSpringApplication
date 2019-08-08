@@ -13,19 +13,19 @@ public class CitasServiceImpl implements CitasService{
 
 	@Override
 	public Iterable<CITAS> getAllCITAS() {
-		// TODO Auto-generated method stub
+		// Function to obtain dates from repository
 		return repository.findAll();
 	}
 
 	@Override
 	public void save(CITAS citas) {
-		// TODO Auto-generated method stub
+		// Function to save dates, Http methods like PUT and POST
 		repository.save(citas);
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
+		// Function to delete some data in database
 		repository.deleteById(id);
 	}
 

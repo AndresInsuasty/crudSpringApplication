@@ -17,30 +17,30 @@ public class CITAS implements Serializable{
 	private Long id;
 	
 	@Column
-	private Long PACIENT_ID;
+	private Long pacientId;
 	
 	@Column
-	private Long DOCTOR_ID;
+	private Long doctorId;
 	
 	@Column
-	private String NewDate;
+	private String newDate;
 	
 	@Column
-	private String Time;
+	private String time;
 	
 	@Override
 	public String toString() {
-		return "CITAS [id=" + id + ", PACIENT_ID=" + PACIENT_ID + ", DOCTOR_ID=" + DOCTOR_ID + ", NewDate=" + NewDate
-				+ ", Time=" + Time + "]";
+		return "CITAS [id=" + id + ", pacientId=" + pacientId + ", doctorId=" + doctorId + ", newDate=" + newDate
+				+ ", time=" + time + "]";
 	}
 
-	public CITAS(Long id, Long pACIENT_ID, Long dOCTOR_ID, String newDate, String time) {
+	public CITAS(Long id, Long pacientID, Long doctorID, String newDate1, String tIme) {
 		super();
 		this.id = id;
-		PACIENT_ID = pACIENT_ID;
-		DOCTOR_ID = dOCTOR_ID;
-		NewDate = newDate;
-		Time = time;
+		pacientId = pacientID;
+		doctorId = doctorID;
+		newDate = newDate1;
+		time = tIme;
 	}
 	public CITAS() {
 		
@@ -54,36 +54,36 @@ public class CITAS implements Serializable{
 		this.id = id;
 	}
 
-	public String getNewDate() {
-		return NewDate;
+	public String getnewDate() {
+		return newDate;
 	}
 
-	public void setNewDate(String newDate) {
-		NewDate = newDate;
+	public void setnewDate(String newDate1) {
+		newDate = newDate1;
 	}
 
-	public String getTime() {
-		return Time;
+	public String gettime() {
+		return time;
 	}
 
-	public void setTime(String time) {
-		Time = time;
+	public void settime(String tIme) {
+		time = tIme;
 	}
 
-	public Long getPACIENT_ID() {
-		return PACIENT_ID;
+	public Long getpacientId() {
+		return pacientId;
 	}
 
-	public void setPACIENT_ID(Long pACIENT_ID) {
-		PACIENT_ID = pACIENT_ID;
+	public void setpacientId(Long pacientID) {
+		pacientId = pacientID;
 	}
 
-	public Long getDOCTOR_ID() {
-		return DOCTOR_ID;
+	public Long getdoctorId() {
+		return doctorId;
 	}
 
-	public void setDOCTOR_ID(Long dOCTOR_ID) {
-		DOCTOR_ID = dOCTOR_ID;
+	public void setdoctorId(Long doctorID) {
+		doctorId = doctorID;
 	}
 	
 

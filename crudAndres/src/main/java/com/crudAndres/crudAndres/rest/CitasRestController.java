@@ -30,7 +30,6 @@ public class CitasRestController {
 	@GetMapping
 	public List<CITAS> listar(){
 		
-		/* Consultar cita y adjuntar doctor y paciente join*/ 
 	return (List<CITAS>)service.getAllCITAS();
 	}
 	
@@ -43,7 +42,7 @@ public class CitasRestController {
 	public void modificar(@RequestBody CITAS citas) {
 		service.save(citas);
 	}
-	
+	  
 	@DeleteMapping("/{id}")
 	public @ResponseBody void eliminar(@PathVariable Long id) {
 		service.deleteById(id);

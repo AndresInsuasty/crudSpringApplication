@@ -1,13 +1,10 @@
 package com.crudAndres.crudAndres.entity;
 
 
-import java.util.Set;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-//import javax.persistence.ManyToMany;
 
 @Entity
 public class DOCTORS{
@@ -36,12 +33,9 @@ public class DOCTORS{
 	@Column(name="DOMICILE")
 	private String domicile;
 	
-//	@ManyToMany(mappedBy = "doctorsList" )
-//	private Set<PACIENTS> pacientList;
 	
 
-	public DOCTORS(Long id, String code, String specialty, Long years, String consultingRoom, String domicile,
-			Set<PACIENTS> pacientList) {
+	public DOCTORS(Long id, String code, String specialty, Long years, String consultingRoom, String domicile) {
 		super();
 		this.id = id;
 		this.code = code;
@@ -49,16 +43,7 @@ public class DOCTORS{
 		this.years = years;
 		this.consultingRoom = consultingRoom;
 		this.domicile = domicile;
-//		this.pacientList = pacientList;
 	}
-
-//	public Set<PACIENTS> getPacientList() {
-//		return pacientList;
-//	}
-
-//	public void setPacientList(Set<PACIENTS> pacientList) {
-//		this.pacientList = pacientList;
-//	}
 
 	public Long getId() {
 		return id;

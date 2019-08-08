@@ -14,18 +14,19 @@ public class DoctorServiceImpl implements DoctorService {
 
 	@Override
 	public Iterable<DOCTORS> getAllDOCTORS() {
-		// TODO Auto-generated method stub
+		// Service to obtain the list of doctors from repository
 		return repository.findAll();
 	}
 
 	@Override
+		// Service to save data in the database Http methods PUT and POST	
 	public void save(DOCTORS doctors) {
 		repository.save(doctors);
 	}
 
 	@Override
 	public void deleteById(Long id) {
-		// TODO Auto-generated method stub
+		// Service to delete data from database with an argument ID into URL
 		repository.deleteById(id);
 
 	}
