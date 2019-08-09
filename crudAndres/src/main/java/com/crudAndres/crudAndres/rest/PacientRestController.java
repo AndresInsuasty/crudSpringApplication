@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 import com.crudAndres.crudAndres.entity.PATIENTS;
+import com.crudAndres.crudAndres.model.PatientsModel;
 import com.crudAndres.crudAndres.service.PacientServiceImpl;
 
 @RestController
@@ -33,13 +34,22 @@ public class PacientRestController {
 	}
 
 	@PostMapping
-	public void insertar(@RequestBody PATIENTS patients) {
+	public void insertar(@RequestBody PatientsModel patientsModel) {
+		// mapping between entity and model
+		PATIENTS patients= new PATIENTS();
+		patients.setId(patientsModel.getId());
+		patients.setName(patientsModel.getName());
+		patients.setLastName(patientsModel.getLastName());
+		patients.setBirthday(patientsModel.getBirthday());
+		patients.setIdentification(patientsModel.getIdentification());
+		patients.setTreatment(patientsModel.getTreatment());
+		patients.setFee(patientsModel.getFee());
 		service.save(patients);
 	}
 
 	@PutMapping
-	public void modificar(@RequestBody PATIENTS patients) {
-		service.save(patients);
+	public void modificar(@RequestBody PatientsModel patientsModel) {
+		insertar(patientsModel);
 	}
 	
 	@DeleteMapping("/{id}")
