@@ -7,8 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
-public class CITAS implements Serializable{
+@Entity(name ="CITAS")
+public class Cita implements Serializable{
 	
 	private static final long serialVersionUID=1L;
 	
@@ -34,7 +34,7 @@ public class CITAS implements Serializable{
 				+ ", time=" + time + "]";
 	}
 
-	public CITAS(Long id, Long pacientID, Long doctorID, String newDate1, String tIme) {
+	public Cita(Long id, Long pacientID, Long doctorID, String newDate1, String tIme) {
 		super();
 		this.id = id;
 		pacientId = pacientID;
@@ -42,7 +42,7 @@ public class CITAS implements Serializable{
 		newDate = newDate1;
 		time = tIme;
 	}
-	public CITAS() {
+	public Cita() {
 		
 	}
 

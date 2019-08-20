@@ -3,7 +3,7 @@ package com.crudAndres.crudAndres.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crudAndres.crudAndres.entity.CITAS;
+import com.crudAndres.crudAndres.entity.Cita;
 import com.crudAndres.crudAndres.repository.CitasRepository;
 @Service
 public class CitasServiceImpl implements CitasService{
@@ -12,15 +12,15 @@ public class CitasServiceImpl implements CitasService{
 	CitasRepository repository;
 
 	@Override
-	public Iterable<CITAS> getAllCITAS() {
+	public Iterable<Cita> getAllCitas() {
 		// Function to obtain dates from repository
 		return repository.findAll();
 	}
 
 	@Override
-	public void save(CITAS citas) {
+	public void save(Cita cita) {
 		// Function to save dates, Http methods like PUT and POST
-		repository.save(citas);
+		repository.save(cita);
 	}
 
 	@Override

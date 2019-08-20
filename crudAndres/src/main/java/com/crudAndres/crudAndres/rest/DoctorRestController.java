@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.crudAndres.crudAndres.entity.DOCTORS;
+import com.crudAndres.crudAndres.entity.Doctor;
 import com.crudAndres.crudAndres.model.DoctorModel;
 import com.crudAndres.crudAndres.service.DoctorServiceImpl;
 
@@ -27,23 +27,23 @@ public class DoctorRestController {
 	private DoctorServiceImpl service;
 		
 	@GetMapping
-	public List<DOCTORS>listar(){
-		return (List<DOCTORS>) service.getAllDOCTORS();
+	public List<Doctor>listar(){
+		return (List<Doctor>) service.getAllDoctors();
 		
 	}
 	
 	@PostMapping
 	public void insertar(@RequestBody DoctorModel doctorModel) {
-		DOCTORS doctors = new DOCTORS();
+		Doctor doctor = new Doctor();
 		// Mapping between model and entity
-		doctors.setId(doctorModel.getId());
-		doctors.setCode(doctorModel.getCode());
-		doctors.setSpecialty(doctorModel.getSpecialty());
-		doctors.setYears(doctorModel.getYears());
-		doctors.setConsultingRoom(doctorModel.getConsultingRoom());
-		doctors.setDomicile(doctorModel.getDomicile());
+		doctor.setId(doctorModel.getId());
+		doctor.setCode(doctorModel.getCode());
+		doctor.setSpecialty(doctorModel.getSpecialty());
+		doctor.setYears(doctorModel.getYears());
+		doctor.setConsultingRoom(doctorModel.getConsultingRoom());
+		doctor.setDomicile(doctorModel.getDomicile());
 		
-		service.save(doctors);
+		service.save(doctor);
 	}
 	
 	@PutMapping
@@ -55,5 +55,6 @@ public class DoctorRestController {
 	public @ResponseBody void eliminar(@PathVariable Long id) {
 		service.deleteById(id);
 	}
+	
 	
 }

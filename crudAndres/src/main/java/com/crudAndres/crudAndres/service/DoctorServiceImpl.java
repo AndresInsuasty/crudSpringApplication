@@ -1,9 +1,11 @@
 package com.crudAndres.crudAndres.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crudAndres.crudAndres.entity.DOCTORS;
+import com.crudAndres.crudAndres.entity.Doctor;
 import com.crudAndres.crudAndres.repository.DoctorRepository;
 
 @Service
@@ -13,15 +15,15 @@ public class DoctorServiceImpl implements DoctorService {
 	DoctorRepository repository;
 
 	@Override
-	public Iterable<DOCTORS> getAllDOCTORS() {
+	public Iterable<Doctor> getAllDoctors() {
 		// Service to obtain the list of doctors from repository
 		return repository.findAll();
 	}
 
 	@Override
 		// Service to save data in the database Http methods PUT and POST	
-	public void save(DOCTORS doctors) {
-		repository.save(doctors);
+	public void save(Doctor doctor) {
+		repository.save(doctor);
 	}
 
 	@Override
@@ -31,4 +33,19 @@ public class DoctorServiceImpl implements DoctorService {
 
 	}
 
+	@Override
+	public Optional<Doctor> findById(Long i) {
+		// Find data by id
+		return repository.findById(i);
+	}
+
+	@Override
+	public void truncar() {
+		// Function to delete 
+		repository.deleteAll();
+	}
+
+
 }
+
+

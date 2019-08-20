@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.crudAndres.crudAndres.entity.CITAS;
+import com.crudAndres.crudAndres.entity.Cita;
 import com.crudAndres.crudAndres.model.CitasModel;
 import com.crudAndres.crudAndres.service.CitasServiceImpl;
 
@@ -29,21 +29,21 @@ public class CitasRestController {
 	private CitasServiceImpl service;
 	
 	@GetMapping
-	public List<CITAS> listar(){
+	public List<Cita> listar(){
 		
-	return (List<CITAS>)service.getAllCITAS();
+	return (List<Cita>)service.getAllCitas();
 	}
 	
 	@PostMapping
 	public void insertar(@RequestBody CitasModel citasModel) {
 		// Mapping between model and entity
-		CITAS citas = new CITAS();
-		citas.setId(citasModel.getId());
-		citas.setdoctorId(citasModel.getDoctorId());
-		citas.setpacientId(citasModel.getPacientId());
-		citas.setnewDate(citasModel.getNewDate());
-		citas.settime(citasModel.getTime());
-		service.save(citas);
+		Cita cita = new Cita();
+		cita.setId(citasModel.getId());
+		cita.setdoctorId(citasModel.getDoctorId());
+		cita.setpacientId(citasModel.getPacientId());
+		cita.setnewDate(citasModel.getNewDate());
+		cita.settime(citasModel.getTime());
+		service.save(cita);
 	}
 	
 	@PutMapping

@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
-import com.crudAndres.crudAndres.entity.PATIENTS;
+import com.crudAndres.crudAndres.entity.Patient;
 import com.crudAndres.crudAndres.model.PatientsModel;
 import com.crudAndres.crudAndres.service.PacientServiceImpl;
 
@@ -29,22 +29,22 @@ public class PacientRestController {
 	
 
 	@GetMapping
-	public List<PATIENTS> listar() {
-		return (List<PATIENTS>) service.getAllPACIENTS();
+	public List<Patient> listar() {
+		return (List<Patient>) service.getAllPatients();
 	}
 
 	@PostMapping
 	public void insertar(@RequestBody PatientsModel patientsModel) {
 		// mapping between entity and model
-		PATIENTS patients= new PATIENTS();
-		patients.setId(patientsModel.getId());
-		patients.setName(patientsModel.getName());
-		patients.setLastName(patientsModel.getLastName());
-		patients.setBirthday(patientsModel.getBirthday());
-		patients.setIdentification(patientsModel.getIdentification());
-		patients.setTreatment(patientsModel.getTreatment());
-		patients.setFee(patientsModel.getFee());
-		service.save(patients);
+		Patient patient= new Patient();
+		patient.setId(patientsModel.getId());
+		patient.setName(patientsModel.getName());
+		patient.setLastName(patientsModel.getLastName());
+		patient.setBirthday(patientsModel.getBirthday());
+		patient.setIdentification(patientsModel.getIdentification());
+		patient.setTreatment(patientsModel.getTreatment());
+		patient.setFee(patientsModel.getFee());
+		service.save(patient);
 	}
 
 	@PutMapping

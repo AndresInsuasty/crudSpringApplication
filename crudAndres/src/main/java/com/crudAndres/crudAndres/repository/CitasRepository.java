@@ -3,9 +3,9 @@ package com.crudAndres.crudAndres.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.crudAndres.crudAndres.entity.CITAS;
+import com.crudAndres.crudAndres.entity.Cita;
 
 @Repository
-public interface CitasRepository extends JpaRepository<CITAS,Long>{
+public interface CitasRepository extends JpaRepository<Cita,Long>{
 
 }

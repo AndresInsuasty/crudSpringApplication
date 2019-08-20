@@ -1,12 +1,12 @@
 package com.crudAndres.crudAndres.service;
 
-import com.crudAndres.crudAndres.entity.PATIENTS;
+import com.crudAndres.crudAndres.entity.Patient;
 
 public interface PacientService {
 	
-	public Iterable<PATIENTS> getAllPACIENTS();
+	public Iterable<Patient> getAllPatients();
 	
-	public void save(PATIENTS patients);
+	public void save(Patient patient);
 	
 	public void deleteById(Long id);
 	

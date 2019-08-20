@@ -3,24 +3,24 @@ package com.crudAndres.crudAndres.service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.crudAndres.crudAndres.entity.PATIENTS;
-import com.crudAndres.crudAndres.repository.PacientRepository;
+import com.crudAndres.crudAndres.entity.Patient;
+import com.crudAndres.crudAndres.repository.PatientRepository;
 @Service
 public class PacientServiceImpl implements PacientService {
 
 	@Autowired
-	PacientRepository repository;
+	PatientRepository repository;
 
 	@Override
-	public Iterable<PATIENTS> getAllPACIENTS() {
+	public Iterable<Patient> getAllPatients() {
 		// Function to obtain patients from database
 		return repository.findAll();
 	}
 
 	@Override
-	public void save(PATIENTS patients) {
+	public void save(Patient patient) {
 		// Function to save Patients Http Methods like PUT and POST
-		repository.save(patients);
+		repository.save(patient);
 	}
 
 	@Override

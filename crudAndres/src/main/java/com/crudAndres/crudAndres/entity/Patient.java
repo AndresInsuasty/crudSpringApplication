@@ -7,8 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 
-@Entity
-public class PATIENTS implements Serializable {
+@Entity(name="PATIENTS")
+public class Patient implements Serializable {
 
 	/**
 	 * 
@@ -122,7 +122,7 @@ public class PATIENTS implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		PATIENTS other = (PATIENTS) obj;
+		Patient other = (Patient) obj;
 		if (birthday == null) {
 			if (other.birthday != null)
 				return false;

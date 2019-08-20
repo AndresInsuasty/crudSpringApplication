@@ -1,13 +1,19 @@
 package com.crudAndres.crudAndres.service;
 
-import com.crudAndres.crudAndres.entity.DOCTORS;
+import java.util.Optional;
+
+import com.crudAndres.crudAndres.entity.Doctor;
 
 public interface DoctorService {
 
-	public Iterable<DOCTORS> getAllDOCTORS();
+	public Iterable<Doctor> getAllDoctors();
 	
-	public void save(DOCTORS doctors);
+	public Optional<Doctor> findById(Long id);
+	
+	public void save(Doctor doctor);
 	
 	public void deleteById(Long id);
+	
+	public void truncar();
 
 }

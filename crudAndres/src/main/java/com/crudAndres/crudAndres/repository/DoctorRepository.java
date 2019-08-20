@@ -2,10 +2,10 @@
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import com.crudAndres.crudAndres.entity.DOCTORS;
+import com.crudAndres.crudAndres.entity.Doctor;
 
 @Repository
-public interface DoctorRepository extends JpaRepository<DOCTORS, Long>{
+public interface DoctorRepository extends JpaRepository<Doctor, Long>{
 	
 	
 

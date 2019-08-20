@@ -1,12 +1,12 @@
 package com.crudAndres.crudAndres.service;
 
-import com.crudAndres.crudAndres.entity.CITAS;
+import com.crudAndres.crudAndres.entity.Cita;
 
 public interface CitasService {
 
-	public Iterable<CITAS> getAllCITAS();
+	public Iterable<Cita> getAllCitas();
 
-	public void save(CITAS citas);
+	public void save(Cita cita);
 
 	public void deleteById(Long id);
 

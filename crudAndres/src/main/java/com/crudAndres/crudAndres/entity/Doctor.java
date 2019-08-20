@@ -6,9 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity
-public class DOCTORS{
-	public DOCTORS() {
+@Entity(name="DOCTORS")
+public class Doctor{
+	public Doctor() {
 		
 	}
 	
@@ -35,7 +35,7 @@ public class DOCTORS{
 	
 	
 
-	public DOCTORS(Long id, String code, String specialty, Long years, String consultingRoom, String domicile) {
+	public Doctor(Long id, String code, String specialty, Long years, String consultingRoom, String domicile) {
 		super();
 		this.id = id;
 		this.code = code;

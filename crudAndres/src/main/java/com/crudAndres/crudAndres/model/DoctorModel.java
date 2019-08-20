@@ -10,6 +10,7 @@ public class DoctorModel {
 	String specialty;
 	Long years;
 	String consultingRoom;
+	String domicile;
 
 	public DoctorModel(Long id, String code, String specialty, Long years, String consultingRoom, String domicile) {
 		super();
@@ -69,6 +70,6 @@ public class DoctorModel {
 		this.domicile = domicile;
 	}
 
-	String domicile;
+
 
 }
