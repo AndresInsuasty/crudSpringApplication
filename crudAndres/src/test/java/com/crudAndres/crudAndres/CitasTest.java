@@ -45,13 +45,7 @@ public class CitasTest {
 		Optional<Cita> cit = repository.findById((long)1);
 		Cita citaResult = cit.get();
 		Cita citaExpected = cita;
-		
-		assertEquals(citaExpected.getId(),citaResult.getId());
-		assertEquals(citaExpected.getpacientId(),citaResult.getpacientId());
-		assertEquals(citaExpected.getdoctorId(),citaResult.getdoctorId());
-		assertEquals(citaExpected.getnewDate(),citaResult.getnewDate());
-		assertEquals(citaExpected.gettime(),citaResult.gettime());
-//		assertEquals(citaExpected,citaResult);
+		assertEquals(citaExpected,citaResult);
 		
 	}
 	

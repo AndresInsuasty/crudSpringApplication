@@ -93,5 +93,60 @@ public class Doctor{
 		this.domicile = domicile;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((code == null) ? 0 : code.hashCode());
+		result = prime * result + ((consultingRoom == null) ? 0 : consultingRoom.hashCode());
+		result = prime * result + ((domicile == null) ? 0 : domicile.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((specialty == null) ? 0 : specialty.hashCode());
+		result = prime * result + ((years == null) ? 0 : years.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Doctor other = (Doctor) obj;
+		if (code == null) {
+			if (other.code != null)
+				return false;
+		} else if (!code.equals(other.code))
+			return false;
+		if (consultingRoom == null) {
+			if (other.consultingRoom != null)
+				return false;
+		} else if (!consultingRoom.equals(other.consultingRoom))
+			return false;
+		if (domicile == null) {
+			if (other.domicile != null)
+				return false;
+		} else if (!domicile.equals(other.domicile))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (specialty == null) {
+			if (other.specialty != null)
+				return false;
+		} else if (!specialty.equals(other.specialty))
+			return false;
+		if (years == null) {
+			if (other.years != null)
+				return false;
+		} else if (!years.equals(other.years))
+			return false;
+		return true;
+	}
+
 
 }

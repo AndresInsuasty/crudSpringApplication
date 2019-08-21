@@ -44,13 +44,7 @@ public class DoctorTest {
 		Optional<Doctor> doc = repository.findById(doctor.getId());
 		Doctor doctorResult = doc.get();
 		Doctor doctorExpected = doctor;
-		assertEquals(doctorExpected.getId(), doctorResult.getId());
-		assertEquals(doctorExpected.getCode(), doctorResult.getCode());
-		assertEquals(doctorExpected.getConsultingRoom(), doctorResult.getConsultingRoom());
-		assertEquals(doctorExpected.getDomicile(), doctorResult.getDomicile());
-		assertEquals(doctorExpected.getSpecialty(), doctorResult.getSpecialty());
-		assertEquals(doctorExpected.getYears(), doctorResult.getYears());
-//		assertEquals(doctorExpected,doctorResult);
+		assertEquals(doctorExpected,doctorResult);
 
 	}
 
