@@ -14,14 +14,15 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.crudAndres.crudAndres.entity.Patient;
-import com.crudAndres.crudAndres.repository.PatientRepository;
+import com.crudAndres.crudAndres.service.PacientServiceImpl;
+
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class PatientTest {
 	
 	@Autowired
-	private PatientRepository repository;
+	private PacientServiceImpl service;
 	
 	private Patient patient;
 	
@@ -42,7 +43,7 @@ public class PatientTest {
 	@Sql(scripts = "/saveTest.sql")
 	public void FindByIdPatientRepositoryTest() {
 		
-		Optional<Patient> pat = repository.findById((long)1); 
+		Optional<Patient> pat = service.findById((long)1); 
 		Patient patientResult = pat.get();
 		Patient patientExpected = patient;
 		assertEquals(patientExpected,patientResult);

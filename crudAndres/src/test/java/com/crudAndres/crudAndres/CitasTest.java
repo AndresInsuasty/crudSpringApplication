@@ -14,7 +14,8 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.crudAndres.crudAndres.entity.Cita;
-import com.crudAndres.crudAndres.repository.CitasRepository;
+
+import com.crudAndres.crudAndres.service.CitasServiceImpl;
 
 
 @RunWith(SpringRunner.class)
@@ -22,7 +23,7 @@ import com.crudAndres.crudAndres.repository.CitasRepository;
 public class CitasTest {
 
 	@Autowired
-	private CitasRepository repository;
+	private CitasServiceImpl service;
 	
 	private Cita cita;
 	
@@ -42,7 +43,7 @@ public class CitasTest {
 	@Sql(scripts = "/truncarTest.sql")
 	@Sql(scripts = "/saveTest.sql")
 	public void findByIdCitasRepositoryTest() {
-		Optional<Cita> cit = repository.findById((long)1);
+		Optional<Cita> cit = service.findById((long)1);
 		Cita citaResult = cit.get();
 		Cita citaExpected = cita;
 		assertEquals(citaExpected,citaResult);

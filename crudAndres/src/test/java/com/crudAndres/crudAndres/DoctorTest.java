@@ -13,7 +13,7 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.crudAndres.crudAndres.entity.Doctor;
-import com.crudAndres.crudAndres.repository.DoctorRepository;
+import com.crudAndres.crudAndres.service.DoctorServiceImpl;
 
 
 @RunWith(SpringRunner.class)
@@ -21,7 +21,7 @@ import com.crudAndres.crudAndres.repository.DoctorRepository;
 public class DoctorTest {
 
 	@Autowired
-	private DoctorRepository repository;
+	private DoctorServiceImpl service;
 
 	private Doctor doctor;
 
@@ -41,7 +41,7 @@ public class DoctorTest {
 	@Sql(scripts = "/truncarTest.sql")
 	@Sql(scripts = "/saveTest.sql")
 	public void FindByIdDoctorRepositoryTest() {
-		Optional<Doctor> doc = repository.findById(doctor.getId());
+		Optional<Doctor> doc = service.findById(doctor.getId());
 		Doctor doctorResult = doc.get();
 		Doctor doctorExpected = doctor;
 		assertEquals(doctorExpected,doctorResult);

@@ -1,5 +1,7 @@
 package com.crudAndres.crudAndres.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,12 @@ public class PacientServiceImpl implements PacientService {
 	public void deleteById(Long id) {
 		// Function to delete data from database
 		repository.deleteById(id);
+	}
+
+	@Override
+	public Optional<Patient> findById(Long id) {
+		// TODO Auto-generated method stub
+		return repository.findById(id);
 	}
 
 }

@@ -1,5 +1,7 @@
 package com.crudAndres.crudAndres.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,12 @@ public class CitasServiceImpl implements CitasService{
 	public void deleteById(Long id) {
 		// Function to delete some data in database
 		repository.deleteById(id);
+	}
+
+	@Override
+	public Optional<Cita> findById(Long id) {
+
+		return repository.findById(id);
 	}
 
 }
