@@ -4,13 +4,15 @@ import static org.junit.Assert.*;
 
 import java.util.Optional;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
+import org.springframework.test.context.jdbc.SqlConfig;
+import org.springframework.test.context.jdbc.SqlConfig.TransactionMode;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.crudAndres.crudAndres.entity.Patient;
@@ -39,9 +41,9 @@ public class PatientTest {
 	}
 	
 	@Test
-	@Sql(scripts = "/truncarTest.sql")
-	@Sql(scripts = "/saveTest.sql")
-	public void FindByIdPatientRepositoryTest() {
+	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	public void FindByIdPatientTest() {
 		
 		Optional<Patient> pat = service.findById((long)1); 
 		Patient patientResult = pat.get();
@@ -49,11 +51,14 @@ public class PatientTest {
 		assertEquals(patientExpected,patientResult);
 	}
 	
-	@After
-	@Sql(scripts = "/truncarTest.sql")
-	public void finish() {
-
+	@Test
+	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	public void deletePatientTest() {
+		service.deleteById((long)1);
+		assertEquals(Optional.empty(),service.findById((long)1));
 	}
+	
 	
 
 }

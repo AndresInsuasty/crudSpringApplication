@@ -3,13 +3,15 @@ package com.crudAndres.crudAndres;
 import static org.junit.Assert.*;
 import java.util.Optional;
 
-import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
+import org.springframework.test.context.jdbc.SqlConfig;
+import org.springframework.test.context.jdbc.Sql.ExecutionPhase;
+import org.springframework.test.context.jdbc.SqlConfig.TransactionMode;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.crudAndres.crudAndres.entity.Doctor;
@@ -19,6 +21,7 @@ import com.crudAndres.crudAndres.service.DoctorServiceImpl;
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class DoctorTest {
+
 
 	@Autowired
 	private DoctorServiceImpl service;
@@ -38,19 +41,13 @@ public class DoctorTest {
 	}
 
 	@Test
-	@Sql(scripts = "/truncarTest.sql")
-	@Sql(scripts = "/saveTest.sql")
+	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
 	public void FindByIdDoctorRepositoryTest() {
 		Optional<Doctor> doc = service.findById(doctor.getId());
 		Doctor doctorResult = doc.get();
 		Doctor doctorExpected = doctor;
 		assertEquals(doctorExpected,doctorResult);
-
-	}
-
-	@After
-	@Sql(scripts = "/truncarTest.sql")
-	public void finish() {
 
 	}
 
