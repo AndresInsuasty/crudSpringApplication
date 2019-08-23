@@ -1,6 +1,6 @@
 # springboot-sample-app
 <p align="center">
-  <img src="red-green-blue-gophers-smaller.png" />
+  <img src="https://miro.medium.com/max/1200/1*wUsUWiM0o5H-CVNnnD-QUg.png" />
 </p>
 
 This is a CRUD medical sample in a rest service to be used in frontend with angular service.
