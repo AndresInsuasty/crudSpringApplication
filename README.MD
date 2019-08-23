@@ -1,4 +1,7 @@
 # springboot-sample-app
+<p align="center">
+  <img src="red-green-blue-gophers-smaller.png" />
+</p>
 
 This is a CRUD medical sample in a rest service to be used in frontend with angular service.
 
@@ -8,10 +11,13 @@ This project has entities like
 -Cita
 Everyone entities have interaction with a model, service, and repository, also it is implemented a unitary test to probe the correct behavior of the different process about service with models and entities to manage the data in the Oracle database
 
-## Requirements
+## What you'll need
 
-For building and running the application you need:
+* A computer!
+* [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Maven 3](https://maven.apache.org)
+* [Oracle Database](https://www.oracle.com/co/database/)
+* A text editor
+* Some experience with programming. Understanding of concepts like `if`, variables, functions etc.
+* Comfortable with using the terminal and maybe spring suite (is like Eclipse environment)
 
-- [JDK 1.8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-- [Maven 3](https://maven.apache.org)
-- [Oracle Database](https://www.oracle.com/co/database/)
