@@ -1,6 +1,6 @@
 # springboot-sample-app
 
-This is a sample 
+This is a CRUD medical sample in a rest service to be use in frontend with a angular service
 
 ## Requirements
 
