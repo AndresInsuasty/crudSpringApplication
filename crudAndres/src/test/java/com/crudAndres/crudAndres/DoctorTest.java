@@ -39,16 +39,43 @@ public class DoctorTest {
 		doctor.setYears((long) 4);
 
 	}
+	
+	@Test
+	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	public void getAllDoctorTest() {
+		Iterable<Doctor> doc = service.getAllDoctors();
+		assertNotNull(doc);
+	}
+	
 
 	@Test
 	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
-	public void FindByIdDoctorRepositoryTest() {
+	public void findByIdDoctorTest() {
 		Optional<Doctor> doc = service.findById(doctor.getId());
 		Doctor doctorResult = doc.get();
 		Doctor doctorExpected = doctor;
 		assertEquals(doctorExpected,doctorResult);
-
+	}
+	
+	@Test
+	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	public void deleteDoctorTest() {
+		service.deleteById((long)1);
+		assertEquals(Optional.empty(),service.findById((long)1));
+	}
+	
+	
+	@Test
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	public void saveDoctorTest() {
+		service.save(doctor);
+		Optional<Doctor> doc = service.findById((long)1);
+		Doctor doctorResult = doc.get();
+		assertEquals(doctor,doctorResult);
 	}
 
 }

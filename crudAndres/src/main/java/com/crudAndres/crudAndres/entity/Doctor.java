@@ -1,39 +1,34 @@
 package com.crudAndres.crudAndres.entity;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-@Entity(name="DOCTORS")
-public class Doctor{
+@Entity(name = "DOCTORS")
+public class Doctor {
 	public Doctor() {
-		
+
 	}
-	
-	
+
 	@Id
-	@GeneratedValue
-	@Column(name="ID")
+//	@GeneratedValue // este comando continua la secuencia y para los test necesito que no se continue porque cambia el ID que establezco
+	@Column(name = "ID")
 	private Long id;
-	
-	@Column(name="CODE")
+
+	@Column(name = "CODE")
 	private String code;
-	
-	@Column(name="SPECIALTY")
+
+	@Column(name = "SPECIALTY")
 	private String specialty;
-	
-	@Column(name="YEARS")
+
+	@Column(name = "YEARS")
 	private Long years;
-	
-	@Column(name="CONSULTING_ROOM")
+
+	@Column(name = "CONSULTING_ROOM")
 	private String consultingRoom;
-	
-	@Column(name="DOMICILE")
+
+	@Column(name = "DOMICILE")
 	private String domicile;
-	
-	
 
 	public Doctor(Long id, String code, String specialty, Long years, String consultingRoom, String domicile) {
 		super();
@@ -147,6 +142,5 @@ public class Doctor{
 			return false;
 		return true;
 	}
-
 
 }

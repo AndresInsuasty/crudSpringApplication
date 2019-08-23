@@ -4,7 +4,6 @@ import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity(name ="CITAS")
@@ -13,7 +12,7 @@ public class Cita implements Serializable{
 	private static final long serialVersionUID=1L;
 	
 	@Id
-	@GeneratedValue
+//	@GeneratedValue // este comando continua la secuencia y para los test necesito que no se continue porque cambia el ID que establezco
 	private Long id;
 	
 	@Column

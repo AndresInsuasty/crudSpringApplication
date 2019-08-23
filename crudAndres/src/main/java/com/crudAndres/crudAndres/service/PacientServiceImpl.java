@@ -33,7 +33,7 @@ public class PacientServiceImpl implements PacientService {
 
 	@Override
 	public Optional<Patient> findById(Long id) {
-		// TODO Auto-generated method stub
+		// Function to find data by id
 		return repository.findById(id);
 	}
 

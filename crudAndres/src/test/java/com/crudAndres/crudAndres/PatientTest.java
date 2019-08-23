@@ -54,9 +54,29 @@ public class PatientTest {
 	@Test
 	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	public void getAllPatientTest() {
+		Iterable<Patient> pat = service.getAllPatients();
+		assertNotNull(pat);
+	}
+	
+	
+	@Test
+	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
 	public void deletePatientTest() {
 		service.deleteById((long)1);
 		assertEquals(Optional.empty(),service.findById((long)1));
+	}
+	
+	
+	@Test
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	public void savePatientTest() {
+		service.save(patient);
+		Optional<Patient> pat = service.findById((long)1); 
+		Patient patientResult = pat.get();
+		assertEquals(patient,patientResult);
 	}
 	
 	

@@ -40,16 +40,42 @@ public class CitasTest {
 		cita.settime("14:00");
 	}
 	
+	@Test
+	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	public void getAllCitasTest() {
+		Iterable<Cita> cit = service.getAllCitas();
+		assertNotNull(cit);
+	}
+	
 	
 	@Test
 	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
 	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
-	public void findByIdCitasRepositoryTest() {
+	public void findByIdCitasTest() {
 		Optional<Cita> cit = service.findById((long)1);
 		Cita citaResult = cit.get();
 		Cita citaExpected = cita;
 		assertEquals(citaExpected,citaResult);
 		
+	}
+	
+	@Test
+	@Sql(scripts = "/saveTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED),executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	public void deleteCitaTest() {
+		service.deleteById((long)1);
+		assertEquals(Optional.empty(),service.findById((long)1));
+	}
+	
+	@Test
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.AFTER_TEST_METHOD)
+	@Sql(scripts = "/truncarTest.sql",config = @SqlConfig(transactionMode = TransactionMode.ISOLATED), executionPhase = ExecutionPhase.BEFORE_TEST_METHOD)
+	public void saveCitaTest() {
+		service.save(cita);
+		Optional<Cita> cit = service.findById((long)1);
+		Cita citaResult = cit.get();
+		assertEquals(cita,citaResult);
 	}
 	
 
