@@ -11,13 +11,13 @@
 patients In essence you should develop the CRUD of doctor, patient and history
 of the patient. Both the visual part (layouts) and the backend must be done
 respective.
-- The information to register for doctor is:
+**The information to register for doctor is:**
 - Professional Card Code 
 - Specialty 
 - Years of Experience
 - Office
 - Home delivery 
-- The information to register for the patient is:
+**The information to register for the patient is:**
 - Names
 - Surname
 - Date of birth
