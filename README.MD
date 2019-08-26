@@ -21,3 +21,8 @@ Everyone entities have interaction with a model, service, and repository, also i
 * Some experience with programming. Understanding of concepts like `if`, variables, functions etc.
 * Comfortable with using the terminal and maybe spring suite (is like Eclipse environment)
 
+## Project
+This repository has a project called Development, if you want, you can help in solve some issues
+
+## Do you have concerns about the code?
+Please contact me, this is my email: andresinsuastyd10@gmail.com
