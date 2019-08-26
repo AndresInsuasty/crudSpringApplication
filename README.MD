@@ -7,10 +7,8 @@
 
 **this problem is to develop an android app, however to understand all about to be a web developer is modified to show in a web service. This repository has a backend code**
 
-*You must build a mobile application that allows you to register doctors and associate it with
-patients In essence you should develop the CRUD of doctor, patient and history
-of the patient. Both the visual part (layouts) and the backend must be done
-respective.
+*You must build a mobile application that allows you to register doctors and associate it with patients In essence you should develop the CRUD of doctor, patient and history of the patient. Both the visual part (layouts) and the backend must be done respective.*
+
 **The information to register for doctor is:**
 - Professional Card Code 
 - Specialty 
@@ -40,7 +38,7 @@ it cannot be deleted, if you have treated patients in the history. For this last
 you must show a confirmation dialog to allow cascading to clear the
 history too.
 - You must persist the information in the mobile device database to
-Store patient, doctor and history info.*
+Store patient, doctor and history info.
 
 
 ## Introduction to this code: 
